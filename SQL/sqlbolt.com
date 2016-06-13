@@ -1,4 +1,5 @@
 http://sqlbolt.com/lesson
+http://www.tutorialspoint.com/execute_sql_online.php
 =========================================================================================
 	SQL Lesson 2: Queries with constraints (Pt. 1)
 
@@ -173,27 +174,65 @@ ORDER BY Rating DESC
 	SQL Lesson 7: OUTER JOINs
 
 Building_name	Capacity
-1e		24
-1w		32
-2e		16
-2w		20
+1e		        24
+1w		        32
+2e		        16
+2w		        20
 
 Role		Name		Building	Years_employed
-Engineer	Becky A.	1e		4
-Engineer	Dan B.		1e		2
-Engineer	Sharon F.	1e		6
-Engineer	Dan M.		1e		4
-Engineer	Malcom S.	1e		1
-Artist		Tylar S.	2w		2
-Artist		Sherman D.	2w		8
-Artist		Jakob J.	2w		6
-Artist		Lillia A.	2w		7
-Artist		Brandon J.	2w		7
-Manager		Scott K.	1e		9
-Manager		Shirlee M.	1e		3
-Manager		Daria O.	2w		6
+Engineer	Becky A.	1e		    4
+Engineer	Dan B.		1e		    2
+Engineer	Sharon F.	1e		    6
+Engineer	Dan M.		1e		    4
+Engineer	Malcom S.	1e		    1
+Artist		Tylar S.	2w		    2
+Artist		Sherman D.	2w		    8
+Artist		Jakob J.	2w		    6
+Artist		Lillia A.	2w		    7
+Artist		Brandon J.	2w		    7
+Manager		Scott K.	1e		    9
+Manager		Shirlee M.	1e		    3
+Manager		Daria O.	2w		    6
 
 http://i.stack.imgur.com/1UKp7.png
+
+                SQL Joins
+
+ ____  ____                 ____  ____
+/A   \/   B\               /A   \/   B\
+|****/\    |               |    /\****| 
+|***|**|   |               |   |**|***|
+|****\/    |               |    \/****|
+\____/\____/               \____/\____/
+SELECT <select_list>       SELECT <select_list>        
+FROM A                     FROM A 
+LEFT JOIN B                RIGHT JOIN B      
+ON A.Key = B.Key           ON A.Key = B.Key     
+
+ ____  ____                 ____  ____
+/A   \/   B\               /A   \/   B\
+|****/\    |               |    /\****| 
+|***|  |   |               |   |  |***|
+|****\/    |               |    \/****|
+\____/\____/               \____/\____/                
+SELECT <select_list>       SELECT <select_list>        
+FROM A                     FROM A
+LEFT JOIN B                RIGHT JOIN B       
+WHERE B.Key IS NULL        ON A.Key = B.Key
+
+ ____  ____                 ____  ____                 ____  ____
+/A   \/   B\               /A   \/   B\               /A   \/   B\
+|****/\****|               |****/\****|               |    /\    | 
+|***|**|***|               |***|  |***|               |   |**|   |
+|****\/****|               |****\/****|               |    \/    |
+\____/\____/               \____/\____/               \____/\____/    
+SELECT <select_list>       SELECT <select_list>       SELECT <select_list>
+FROM A                     FROM A                     FROM A
+FULL OUTER JOIN B          FULL OUTER JOIN B          INNER JOIN B  
+ON A.Key = B.Key           ON A.Key = B.Key           ON A.Key = B.Key  
+                           WHERE A.Key IS NULL
+                           OR    B.Key IS NULL
+
 
 SELECT column, another_column, …
 FROM mytable
@@ -244,26 +283,77 @@ WHERE Movies.Id = Boxoffice.Movie_id
 3. List all movies that were released on even number years
 SELECT * FROM Movies
 WHERE Year%2==0
+   
+=========================================================================================   
+    SQL Lesson 10: Queries with aggregates (Pt. 1)
     
+1. Find the longest time that an employee has been at the studio
+SELECT Name,MAX(Years_employed) FROM employees
 
+2. For each role, find the average number of years employed by employees in that role
+SELECT role, AVG(years_employed) as Average_years_employed
+FROM employees
+GROUP BY role
 
+3. Find the total number of employee years worked in each building
+SELECT Building,SUM(Years_employed) FROM Employees
+GROUP BY Building
 
+=========================================================================================
+    SQL Lesson 11: Queries with aggregates (Pt. 2)
+    
+1. Find the number of Artists in the studio (without a HAVING clause)
+SELECT Count(Role)  FROM employees
+WHERE Role IS "Artist"
 
+2. Find the number of Employees of each role in the studio
+SELECT Role,COUNT(Role) FROM employees
+GROUP BY Role
 
+3. Find the total number of years employed by all Engineers
+SELECT SUM(Years_employed) FROM employees
+WHERE Role IS "Engineer"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+=========================================================================================
+    SQL Lesson 12: Order of execution of a Query
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
