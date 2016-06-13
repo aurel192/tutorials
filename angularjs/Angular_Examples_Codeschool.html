@@ -1,0 +1,1432 @@
+https://id.atlassian.com/verify-email/sent?application=mac&tenant=&continue=https://my.atlassian.com/license/sourcetree&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2ZXJpZmljYXRpb25UeXBlIjoidmVyaWZ5IiwiZW1haWwiOiJrb3ZhY3NhdXJlbEBnbWFpbC5jb20iLCJjb252ZXJzYXRpb25hbE5hbWUiOiJBdXJlbCBLb3ZhY3MiLCJzY29wZSI6ImVtYWlsVmFsaWRhdGlvblNlbnQiLCJyZW1lbWJlck1lIjoiZmFsc2UiLCJwcm9tcHQiOiJmYWxzZSIsImV4cCI6MTQ2MDUzMzU5MCwiaWF0IjoxNDYwNTMxNzkwLCJzdWIiOiJrb3ZhY3NhdXJlbEBnbWFpbC5jb20iLCJpc3MiOiJzaWdudXAifQ.tDeGm4OXl4LGXskgdWhyERzd0J30tKKCDjsMcfeRTC4
+192192192
+git aurel pass: 192
+gulp serve-dev
+
+Angular.js v1 john papa tutorial, hot towel
+Bootstrap 3 , html 5
+Webapi asp .net
+Json, adatforg webes kommunikacio 
+Entity framework sql
+Vs15 com e
+Webstorm jetbrains, brackets 
+Sync fusion, web ui
+
+// http://campus.codeschool.com/courses/shaping-up-with-angular-js/contents
+// http://courseware.codeschool.com/shaping-up-with-angular-js/Slides/level01-05.pdf
+// http://jsonviewer.stack.hu/
+// http://www.w3schools.com/bootstrap/bootstrap_ref_css_tables.asp
+
+{
+   "book": [
+	
+      {
+         "id":"01",
+         "language": "Java",
+         "edition": "third",
+         "author": "Herbert Schildt"
+      },
+	
+      {
+         "id":"07",
+         "language": "C++",
+         "edition": "second",
+         "author": "E.Balagurusamy"
+      }
+   ]
+}
+
+// app.js
+var app = angular.module('gemStore',[]);
+
+// index.html
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body>
+   <h1>
+     {{"Hello, Angular!"}}
+   </h1>
+  </body>
+</html>
+///  Hello, Angular!
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+(function(){
+  var gem = { name: 'Azurite', price: 2.95 };
+  var app = angular.module('gemStore', []);
+  app.controller('StoreController',function(){
+    this.product = gem;
+  });
+})();
+
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body ng-controller="StoreController as store">
+    <div class="product row">
+      <h3>
+        <em class="pull-right">
+        {{store.product.price}}
+        </em>
+        {{store.product.name}}
+      </h3>
+    </div>
+  </body>
+</html>
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+(function() {
+  var app = angular.module('gemStore', []);
+  
+  app.controller('StoreController', function(){
+    this.product = gem;
+  });
+
+  var gem = {
+    name: 'Azurite',
+    price: 110.50,
+    canPurchase: false,
+    soldOut: true
+  };
+})();
+
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body class="container" ng-controller="StoreController as store">
+    <div class="product row" ng-hide="store.product.soldOut">
+      <h3>
+        {{store.product.name}}
+        <em class="pull-right">${{store.product.price}}</em>
+      </h3>
+      <button ng-show="store.product.canPurchase">Add to Cart</button>
+    </div>
+  </body>
+</html>
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+(function() {
+  var app = angular.module('gemStore', []);
+
+  app.controller('StoreController', function(){
+    
+  });
+
+  var gems = [
+    { name: 'Azurite', price: 2.95 },
+    { name: 'Bloodstone', price: 5.95 },
+    { name: 'Zircon', price: 3.95 }
+  ];
+})();
+
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body class="container" ng-controller="StoreController as store">
+    <div ng-repeat="product in store.products" class="product row">
+      <h3>
+        {{product.name}}
+        <em class="pull-right">${{product.price}}</em>
+      </h3>
+    </div>
+  </body>
+</html>
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+(function() {
+  var app = angular.module('gemStore', []);
+
+  app.controller('StoreController', function(){
+    this.products = gems;
+  });
+
+  var gems = [
+    { name: 'Azurite', price: 110.50 },
+    { name: 'Bloodstone', price: 22.90 },
+    { name: 'Zircon', price: 1100 },
+  ];
+})();
+
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body class="container" ng-controller="StoreController as store">
+    <div class="product row" ng-repeat="product in store.products">
+      <h3>
+        {{product.name}}
+        <em class="pull-right">{{product.price | currency}}  </em>
+      </h3>
+    </div>
+  </body>
+</html>
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+(function() {
+  var app = angular.module('gemStore', []);
+
+  app.controller('StoreController', function(){
+    this.products = gems;
+  });
+
+  var gems = [{
+      name: 'Azurite',
+      description: "Some gems have hidden qualities beyond their luster, beyond their shine... Azurite is one of those gems.",
+      shine: 8,
+      price: 110.50,
+      rarity: 7,
+      color: '#CCC',
+      faces: 14,
+      images: [
+        "images/gem-02.gif",
+        "images/gem-05.gif",
+        "images/gem-09.gif"
+      ],
+      reviews: [{
+        stars: 5,
+        body: "I love this gem!",
+        author: "joe@example.org",
+        createdOn: 1397490980837
+      }, {
+        stars: 1,
+        body: "This gem sucks.",
+        author: "tim@example.org",
+        createdOn: 1397490980837
+      }]
+    }, {
+      name: 'Bloodstone',
+      description: "Origin of the Bloodstone is unknown, hence its low value. It has a very high shine and 12 sides, however.",
+      shine: 9,
+      price: 22.90,
+      rarity: 6,
+      color: '#EEE',
+      faces: 12,
+      images: [
+        "images/gem-01.gif",
+        "images/gem-03.gif",
+        "images/gem-04.gif"
+      ],
+      reviews: [{
+        stars: 3,
+        body: "I think this gem was just OK, could honestly use more shine, IMO.",
+        author: "JimmyDean@example.org",
+        createdOn: 1397490980837
+      }, {
+        stars: 4,
+        body: "Any gem with 12 faces is for me!",
+        author: "gemsRock@example.org",
+        createdOn: 1397490980837
+      }]
+    }, {
+      name: 'Zircon',
+      description: "Zircon is our most coveted and sought after gem. You will pay much to be the proud owner of this gorgeous and high shine gem.",
+      shine: 70,
+      price: 1100,
+      rarity: 2,
+      color: '#000',
+      faces: 6,
+      images: [
+        "images/gem-06.gif",
+        "images/gem-07.gif",
+        "images/gem-10.gif"
+      ],
+      reviews: [{
+        stars: 1,
+        body: "This gem is WAY too expensive for its rarity value.",
+        author: "turtleguyy@example.org",
+        createdOn: 1397490980837
+      }, {
+        stars: 1,
+        body: "BBW: High Shine != High Quality.",
+        author: "LouisW407@example.org",
+        createdOn: 1397490980837
+      }, {
+        stars: 1,
+        body: "Don't waste your rubles!",
+        author: "nat@example.org",
+        createdOn: 1397490980837
+      }]
+    }];
+})();
+
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body ng-controller="StoreController as store">
+    <!--  Products Container  -->
+    <div class="list-group">
+      <!--  Product Container  -->
+      <div class="list-group-item" ng-repeat="product in store.products">
+        <h3>
+          {{product.name}}
+          <em class="pull-right">{{product.price | currency}}</em>
+        </h3>
+        <!-- Image Gallery  -->
+        <div class="gallery">
+          <img ng-src="{{product.images[0]}}"/>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body class="list-group" ng-controller="StoreController as store">
+    <!--  Product Container  -->
+    <div class="list-group-item" ng-repeat="product in store.products">
+      <h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
+
+      <!-- Image Gallery  -->
+      <div class="gallery">
+        <div class="img-wrap">
+          <img ng-src="{{product.images[0]}}" />
+        </div>
+        <ul class="img-thumbnails clearfix">
+          <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+            <img ng-src="{{image}}" />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body ng-controller="StoreController as store">
+    <!--  Products Container  -->
+    <div class="list-group">
+      <!--  Product Container  -->
+      <div class="list-group-item" ng-repeat="product in store.products">
+        <h3>
+          {{product.name}}
+          <em class="pull-right">{{product.price | currency}}</em>
+        </h3>
+
+        <!-- Image Gallery  -->
+        <div ng-show="product.images.length" class="gallery">                 <!-- CSAK AKKOR JELENÍTI MEG A KÉPET HA VAN  -->
+          <img class="img img-circle img-thumbnail center-block" ng-src="{{product.images[0]}}" />
+          <ul class="clearfix">
+            <li class="small-image pull-left thumbnail" ng-repeat="image in product.images"> <img ng-src="{{image}}" /> </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+(function() {
+  var app = angular.module('gemStore', []);
+
+  app.controller('StoreController', function(){
+    this.products = gems;
+  });
+  
+  app.controller('TabController', function(){
+    this.tab = 1;
+    this.setTab = function(tab) {
+      this.tab = tab;
+    };   
+    this.isSet = function(tab) {
+      if (this.tab == tab)
+        return true;
+    };  
+  });
+
+var gems = [   .....
+}
+
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body ng-controller="StoreController as store">
+
+    <!--  Products Container  -->
+    <div class="list-group">
+      <!--  Product Container  -->
+      <div class="list-group-item" ng-repeat="product in store.products">
+        <h3>
+          {{product.name}}
+          <em class="pull-right">{{product.price | currency}}</em>
+        </h3>
+
+        <!-- Image Gallery  -->
+        <div ng-show="product.images.length">
+        <!-- Fail 1 Message -->
+        <div ng-show="product.images">
+          <img class="img img-circle img-thumbnail center-block" ng-src="{{product.images[0]}}" />
+          <ul class="clearfix">
+            <li class="small-image pull-left thumbnail" ng-repeat="image in product.images"> <img ng-src="{{image}}" /> </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </body>
+</html>
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+(function() {
+  var app = angular.module('gemStore', []);
+
+  app.controller('StoreController', function(){
+    this.products = gems;
+  });
+
+  app.controller('TabController', function(){
+    this.tab = 1;
+
+    this.setTab = function(newValue){
+      this.tab = newValue;
+    };
+
+    this.isSet = function(tabName){
+      return this.tab === tabName;
+    };
+  });
+
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body class="list-group" ng-controller="StoreController as store">
+    <header>
+      <h1 class="text-center">Flatlander Crafted Gems</h1>
+      <h2 class="text-center">– an Angular store –</h2>
+    </header>
+    <div class="list-group-item" ng-repeat="product in store.products">
+      <h3>
+        {{product.name}}
+        <em class="pull-right">{{product.price | currency}}</em>
+      </h3>
+      <section ng-show="product.images.length">
+        <img ng-src="{{product.images[0]}}" />
+        <ul class="list-inline thumbs">
+          <li class="thumbnail" ng-repeat="image in product.images">
+            <img ng-src="{{image}}" />
+          </li>
+        </ul>
+      </section>
+
+      <section ng-controller="TabController as tab" class="tab">
+        <ul class="nav nav-pills">
+          <li ng-class="{ active: tab.isSet(1) }">
+            <a href ng-click="tab.setTab(1)">Description</a></li>
+          <li ng-class="{ active: tab.isSet(2) }">
+            <a href ng-click="tab.setTab(2)">Specs</a></li>
+          <li ng-class="{ active: tab.isSet(3) }">
+            <a href ng-click="tab.setTab(3)">Reviews</a></li>
+        </ul>
+        <div ng-show="tab.isSet(1)">
+          <h4>Description</h4>
+          <blockquote>{{product.description}}</blockquote>
+        </div>
+        <div ng-show="tab.isSet(2)">
+          <h4>Specs</h4>
+          <blockquote>{{product.shine}}</blockquote>
+        </div>
+        <div ng-show="tab.isSet(3)">
+          <h4>Reviews</h4>
+          <blockquote></blockquote>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+(function() {
+  var app = angular.module('gemStore', []);
+  
+  app.controller('GalleryController',function(){
+    this.current = 0;
+    
+    //this.setCurrent = function(newGallery){
+    //  this.current = newGallery || 0;
+    //};
+    
+    this.setCurrent = function(newValue){
+      if (newValue)
+        this.current = newValue;
+      else
+        this.current = 0;
+    };
+  });
+  
+  app.controller('StoreController', function(){
+    this.products = gems;
+  });
+
+  app.controller('TabController', function(){
+    this.tab = 1;
+
+    this.setTab = function(newValue){
+      this.tab = newValue;
+    };
+
+    this.isSet = function(tabName){
+      return this.tab === tabName;
+    };
+  });
+  
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body class="list-group" ng-controller="StoreController as store">
+    <!--  Store Header  -->
+    <header>
+      <h1 class="text-center">Flatlander Crafted Gems</h1>
+      <h2 class="text-center">– an Angular store –</h2>
+    </header>
+    <div class="list-group-item" ng-repeat="product in store.products">
+      <h3>
+        {{product.name}}
+        <em class="pull-right">{{product.price | currency}}</em>
+      </h3>
+
+      <!-- Image Gallery  -->
+      <div class='gallery' ng-controller="GalleryController as gallery"  ng-show="product.images.length">
+        <div class="img-wrap">
+          <img ng-src="{{product.images[gallery.current]}}" />
+        </div>
+        <ul class="img-thumbnails clearfix">
+          <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+            <img ng-src="{{image}}" />
+          </li>
+        </ul>
+      </div>
+
+      <!-- Product Tabs -->
+      <section class="tab" ng-controller="TabController as tab">
+        <ul class="nav nav-pills">
+          <li ng-class="{ active: tab.isSet(1) }">
+            <a href ng-click="tab.setTab(1)">Description</a></li>
+          <li ng-class="{ active: tab.isSet(2) }">
+            <a href ng-click="tab.setTab(2)">Specs</a></li>
+          <li ng-class="{ active: tab.isSet(3) }">
+            <a href ng-click="tab.setTab(3)">Reviews</a></li>
+        </ul>
+        <div ng-show="tab.isSet(1)">
+          <h4>Description</h4>
+          <blockquote>{{product.description}}</blockquote>
+        </div>
+        <div ng-show="tab.isSet(2)">
+          <h4>Specs</h4>
+          <blockquote>Shine: {{product.shine}}</blockquote>
+        </div>
+        <div ng-show="tab.isSet(3)">
+          <h4>Reviews</h4>
+        </div>
+      </section>
+
+    </div>
+  </body>
+</html>
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+(function() {
+  var app = angular.module('gemStore', []);
+
+  app.controller('StoreController', function(){
+    this.products = gems;
+  });
+
+  app.controller('TabController', function(){
+    this.tab = 1;
+
+    this.setTab = function(newValue){
+      this.tab = newValue;
+    };
+
+    this.isSet = function(tabName){
+      return this.tab === tabName;
+    };
+  });
+
+  app.controller('GalleryController', function(){
+    this.current = 0;
+    this.setCurrent = function(newGallery){
+      this.current = newGallery || 0;
+    };
+  });
+
+  var gems = [{
+      name: 'Azurite',
+      description: "Some gems have hidden qualities beyond their luster, beyond their shine... Azurite is one of those gems.",
+      shine: 8,
+      price: 110.50,
+      rarity: 7,
+      color: '#CCC',
+      faces: 14,
+      images: [
+        "images/gem-02.gif",
+        "images/gem-05.gif",
+        "images/gem-09.gif"
+      ],
+      reviews: [{
+        stars: 5,
+        body: "I love this gem!",
+        author: "joe@example.org",
+        createdOn: 1397490980837
+      }, {
+        stars: 1,
+        body: "This gem sucks.",
+        author: "tim@example.org",
+        createdOn: 1397490980837
+      }]
+    }, {
+      name: 'Bloodstone',
+      description: "Origin of the Bloodstone is unknown, hence its low value. It has a very high shine and 12 sides, however.",
+      shine: 9,
+      price: 22.90,
+      rarity: 6,
+      color: '#EEE',
+      faces: 12,
+      images: [
+        "images/gem-01.gif",
+        "images/gem-03.gif",
+        "images/gem-04.gif",
+      ],
+      reviews: [{
+        stars: 3,
+        body: "I think this gem was just OK, could honestly use more shine, IMO.",
+        author: "JimmyDean@example.org",
+        createdOn: 1397490980837
+      }, {
+        stars: 4,
+        body: "Any gem with 12 faces is for me!",
+        author: "gemsRock@example.org",
+        createdOn: 1397490980837
+      }]
+    }, {
+      name: 'Zircon',
+      description: "Zircon is our most coveted and sought after gem. You will pay much to be the proud owner of this gorgeous and high shine gem.",
+      shine: 70,
+      price: 1100,
+      rarity: 2,
+      color: '#000',
+      faces: 6,
+      images: [
+        "images/gem-06.gif",
+        "images/gem-07.gif",
+        "images/gem-08.gif"
+      ],
+      reviews: [{
+        stars: 1,
+        body: "This gem is WAY too expensive for its rarity value.",
+        author: "turtleguyy@example.org",
+        createdOn: 1397490980837
+      }, {
+        stars: 1,
+        body: "BBW: High Shine != High Quality.",
+        author: "LouisW407@example.org",
+        createdOn: 1397490980837
+      }, {
+        stars: 1,
+        body: "Don't waste your rubles!",
+        author: "nat@example.org",
+        createdOn: 1397490980837
+      }]
+    }];
+})();
+
+
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body ng-controller="StoreController as store">
+    <header>
+      <h1 class="text-center">Flatlander Crafted Gems</h1>
+      <h2 class="text-center">– an Angular store –</h2>
+    </header>
+    <div class="list-group">
+      <div class="list-group-item" ng-repeat="product in store.products">
+        <h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
+        <div ng-controller="GalleryController as gallery"  ng-show="product.images.length">
+          <div class="img-wrap">
+            <img ng-src="{{product.images[gallery.current]}}" />
+          </div>
+          <ul class="img-thumbnails clearfix">
+            <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+              <img ng-src="{{image}}" />
+            </li>
+          </ul>
+        </div>
+        <section ng-controller="TabController as tab">
+          <ul class="nav nav-pills">
+            <li ng-class="{ active:tab.isSet(1) }">
+              <a href="" ng-click="tab.setTab(1)">Description</a>
+            </li>
+            <li ng-class="{ active:tab.isSet(2) }">
+              <a href="" ng-click="tab.setTab(2)">Specs</a>
+            </li>
+            <li ng-class="{ active:tab.isSet(3) }">
+              <a href="" ng-click="tab.setTab(3)">Reviews</a>
+            </li>
+          </ul>
+          <div ng-show="tab.isSet(1)">
+            <h4>Description</h4>
+            <blockquote>{{product.description}}</blockquote>
+          </div>
+          <div ng-show="tab.isSet(2)">
+            <h4>Specs</h4>
+            <blockquote>Shine: {{product.shine}}</blockquote>
+          </div>
+
+          <!--  Review Tab's Content  -->
+          <div ng-show="tab.isSet(3)">
+            <!--  Product Reviews List -->
+            <ul>
+              <h4>Reviews</h4>
+              <li ng-repeat="review in product.reviews">
+                <blockquote>
+                  <strong>{{review.stars}} Stars</strong>
+                   {{review.body}}
+                  <cite class="clearfix">—{{review.author}}</cite>
+                </blockquote>
+              </li>          
+            </ul>
+          </div>
+
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+(function() {
+  var app = angular.module('gemStore', []);
+
+  app.controller('StoreController', function(){
+    this.products = gems;
+  });
+
+  app.controller('TabController', function(){
+    this.tab = 1;
+
+    this.setTab = function(tab){
+      this.tab = tab;
+    };
+
+    this.isSet = function(tab){
+      return (this.tab === tab);
+    };
+  });
+
+  app.controller('GalleryController', function(){
+    this.current = 0;
+
+    this.setCurrent = function(index){
+      this.current = index;
+    };
+  });
+
+  app.controller("ReviewController",function(){
+    this.review = {};
+    this.addReview = function(newValue){      
+    };
+      
+    
+  });
+
+  var gems = [
+    {
+      name: 'Azurite',
+      description: "Some gems have hidden qualities beyond their luster, beyond their shine... Azurite is one of those gems.",
+      shine: 8,
+      price: 110.50,
+      rarity: 7,
+      color: '#CCC',
+      faces: 14,
+      images: [
+        "images/gem-02.gif",
+        "images/gem-05.gif",
+        "images/gem-09.gif"
+      ],
+      reviews: [{
+        stars: 5,
+        body: "I love this gem!",
+        author: "joe@example.org",
+        createdOn: 1397490980837
+      }, {
+        stars: 1,
+        body: "This gem sucks.",
+        author: "tim@example.org",
+        createdOn: 1397490980837
+      }]
+    }, {
+      name: 'Bloodstone',
+      description: "Origin of the Bloodstone is unknown, hence its low value. It has a very high shine and 12 sides, however.",
+      shine: 9,
+      price: 22.90,
+      rarity: 6,
+      color: '#EEE',
+      faces: 12,
+      images: [
+        "images/gem-01.gif",
+        "images/gem-03.gif",
+        "images/gem-04.gif",
+      ],
+      reviews: [{
+        stars: 3,
+        body: "I think this gem was just OK, could honestly use more shine, IMO.",
+        author: "JimmyDean@example.org",
+        createdOn: 1397490980837
+      }, {
+        stars: 4,
+        body: "Any gem with 12 faces is for me!",
+        author: "gemsRock@example.org",
+        createdOn: 1397490980837
+      }]
+    }, {
+      name: 'Zircon',
+      description: "Zircon is our most coveted and sought after gem. You will pay much to be the proud owner of this gorgeous and high shine gem.",
+      shine: 70,
+      price: 1100,
+      rarity: 2,
+      color: '#000',
+      faces: 6,
+      images: [
+        "images/gem-06.gif",
+        "images/gem-07.gif",
+        "images/gem-08.gif"
+      ],
+      reviews: [{
+        stars: 1,
+        body: "This gem is WAY too expensive for its rarity value.",
+        author: "turtleguyy@example.org",
+        createdOn: 1397490980837
+      }, {
+        stars: 1,
+        body: "BBW: High Shine != High Quality.",
+        author: "LouisW407@example.org",
+        createdOn: 1397490980837
+      }, {
+        stars: 1,
+        body: "Don't waste your rubles!",
+        author: "nat@example.org",
+        createdOn: 1397490980837
+      }]
+    }
+  ];
+})();
+
+/////////////////////////////////// L3 S2 ///////////////////////////////////////////////////////
+
+(function() {
+  var app = angular.module('gemStore', []);
+
+  app.controller('StoreController', function(){
+    this.products = gems;
+  });
+
+  app.controller('TabController', function(){
+    this.tab = 1;
+
+    this.setTab = function(tab){
+      this.tab = tab;
+    };
+
+    this.isSet = function(tab){
+      return (this.tab === tab);
+    };
+  });
+
+  app.controller('GalleryController', function(){
+    this.current = 0;
+
+    this.setCurrent = function(index){
+      this.current = index;
+    };
+  });
+
+  app.controller("ReviewController",function(){
+    this.review = {};
+    this.addReview = function(product){
+      product.reviews.push(this.review);
+      this.review = {};
+    };
+  });
+
+  var gems = [
+    {
+      name: 'Azurite',
+      description: "Some gems have hidden qualities beyond their luster, beyond their shine... Azurite is one of those gems.",
+      shine: 8,
+      price: 110.50,
+      rarity: 7,
+      color: '#CCC',
+      faces: 14,
+      images: [
+        "images/gem-02.gif",
+        "images/gem-05.gif",
+        "images/gem-09.gif"
+      ],
+      reviews: [{
+        stars: 5,
+        body: "I love this gem!",
+        author: "joe@example.org",
+        createdOn: 1397490980837
+      }, {
+        stars: 1,
+        body: "This gem sucks.",
+        author: "tim@example.org",
+        createdOn: 1397490980837
+      }]
+    }, {
+      name: 'Bloodstone',
+      description: "Origin of the Bloodstone is unknown, hence its low value. It has a very high shine and 12 sides, however.",
+      shine: 9,
+      price: 22.90,
+      rarity: 6,
+      color: '#EEE',
+      faces: 12,
+      images: [
+        "images/gem-01.gif",
+        "images/gem-03.gif",
+        "images/gem-04.gif",
+      ],
+      reviews: [{
+        stars: 3,
+        body: "I think this gem was just OK, could honestly use more shine, IMO.",
+        author: "JimmyDean@example.org",
+        createdOn: 1397490980837
+      }, {
+        stars: 4,
+        body: "Any gem with 12 faces is for me!",
+        author: "gemsRock@example.org",
+        createdOn: 1397490980837
+      }]
+    }, {
+      name: 'Zircon',
+      description: "Zircon is our most coveted and sought after gem. You will pay much to be the proud owner of this gorgeous and high shine gem.",
+      shine: 70,
+      price: 1100,
+      rarity: 2,
+      color: '#000',
+      faces: 6,
+      images: [
+        "images/gem-06.gif",
+        "images/gem-07.gif",
+        "images/gem-08.gif"
+      ],
+      reviews: [{
+        stars: 1,
+        body: "This gem is WAY too expensive for its rarity value.",
+        author: "turtleguyy@example.org",
+        createdOn: 1397490980837
+      }, {
+        stars: 1,
+        body: "BBW: High Shine != High Quality.",
+        author: "LouisW407@example.org",
+        createdOn: 1397490980837
+      }, {
+        stars: 1,
+        body: "Don't waste your rubles!",
+        author: "nat@example.org",
+        createdOn: 1397490980837
+      }]
+    }
+  ];
+})();
+
+/////////////////////////////////// L3 S2 USING REVIEW CONTROLLER ///////////////////////////////////////////////////////
+
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body ng-controller="StoreController as store">
+    <header>
+      <h1 class="text-center">Flatlander Crafted Gems</h1>
+      <h2 class="text-center">– an Angular store –</h2>
+    </header>
+    <div class="list-group">
+      <div class="list-group-item" ng-repeat="product in store.products">
+        <h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
+        <div ng-controller="GalleryController as gallery"  ng-show="product.images.length">
+          <div class="img-wrap">
+            <img ng-src="{{product.images[gallery.current]}}" />
+          </div>
+          <ul class="img-thumbnails clearfix">
+            <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+              <img ng-src="{{image}}" />
+            </li>
+          </ul>
+        </div>
+        <section ng-controller="TabController as tab">
+          <ul class="nav nav-pills">
+            <li ng-class="{ active:tab.isSet(1) }">
+              <a href="" ng-click="tab.setTab(1)">Description</a>
+            </li>
+            <li ng-class="{ active:tab.isSet(2) }">
+              <a href="" ng-click="tab.setTab(2)">Specs</a>
+            </li>
+            <li ng-class="{ active:tab.isSet(3) }">
+              <a href="" ng-click="tab.setTab(3)">Reviews</a>
+            </li>
+          </ul>
+          <div ng-show="tab.isSet(1)">
+            <h4>Description</h4>
+            <blockquote>{{product.description}}</blockquote>
+          </div>
+          <div ng-show="tab.isSet(2)">
+            <h4>Specs</h4>
+            <blockquote>Shine: {{product.shine}}</blockquote>
+          </div>
+          <div ng-show="tab.isSet(3)">
+            <!--  Product Reviews List -->
+            <ul>
+              <h4>Reviews</h4>
+              <li ng-repeat="review in product.reviews">
+                <blockquote>
+                  <strong>{{review.stars}} Stars</strong>
+                  {{review.body}}
+                  <cite class="clearfix">—{{review.author}}</cite>
+                </blockquote>
+              </li>
+            </ul>
+
+            <!--  Review Form -->
+            <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(product)" >
+
+              <!--  Live Preview -->
+              <blockquote>
+                <strong>{{reviewCtrl.review.stars}} Stars</strong>
+                {{reviewCtrl.review.body}}
+                <cite class="clearfix">—{{reviewCtrl.review.author}}</cite>
+              </blockquote>
+
+              <!--  Review Form -->
+              <h4>Submit a Review</h4>
+              <fieldset class="form-group">
+                <select ng-model="reviewCtrl.review.stars" class="form-control" ng-options="stars for stars in [5,4,3,2,1]" title="Stars">
+                  <option value="">Rate the Product</option>
+                </select>
+              </fieldset>
+              <fieldset class="form-group">
+                <textarea ng-model="reviewCtrl.review.body" class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
+              </fieldset>
+              <fieldset class="form-group">
+                <input ng-model="reviewCtrl.review.author" type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />
+              </fieldset>
+              <fieldset class="form-group">
+                <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
+              </fieldset>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
+
+/////////////////////////////////// L3 S2 FORM VALIDATION ///////////////////////////////////////////////////////
+
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+
+  <body ng-controller="StoreController as store">
+    <!--  Store Header  -->
+    <header>
+      <h1 class="text-center">Flatlander Crafted Gems</h1>
+      <h2 class="text-center">– an Angular store –</h2>
+    </header>
+
+    <!--  Products Container  -->
+    <div class="list-group">
+      <!--  Product Container  -->
+      <div class="list-group-item" ng-repeat="product in store.products">
+        <h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
+
+        <!-- Image Gallery  -->
+        <div ng-controller="GalleryController as gallery"  ng-show="product.images.length">
+          <div class="img-wrap">
+            <img ng-src="{{product.images[gallery.current]}}" />
+          </div>
+          <ul class="img-thumbnails clearfix">
+            <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+              <img ng-src="{{image}}" />
+            </li>
+          </ul>
+        </div>
+
+        <!-- Product Tabs  -->
+        <section ng-controller="TabController as tab">
+          <ul class="nav nav-pills">
+            <li ng-class="{ active:tab.isSet(1) }">
+              <a href="" ng-click="tab.setTab(1)">Description</a>
+            </li>
+            <li ng-class="{ active:tab.isSet(2) }">
+              <a href="" ng-click="tab.setTab(2)">Specs</a>
+            </li>
+            <li ng-class="{ active:tab.isSet(3) }">
+              <a href="" ng-click="tab.setTab(3)">Reviews</a>
+            </li>
+          </ul>
+
+          <!--  Description Tab's Content  -->
+          <div ng-show="tab.isSet(1)">
+            <h4>Description</h4>
+            <blockquote>{{product.description}}</blockquote>
+          </div>
+
+          <!--  Spec Tab's Content  -->
+          <div ng-show="tab.isSet(2)">
+            <h4>Specs</h4>
+            <blockquote>Shine: {{product.shine}}</blockquote>
+          </div>
+
+          <!--  Review Tab's Content  -->
+          <div ng-show="tab.isSet(3)">
+            <!--  Product Reviews List -->
+            <ul>
+              <h4>Reviews</h4>
+              <li ng-repeat="review in product.reviews">
+                <blockquote>
+                  <strong>{{review.stars}} Stars</strong>
+                  {{review.body}}
+                  <cite class="clearfix">—{{review.author}}</cite>
+                </blockquote>
+              </li>
+            </ul>
+
+            <!--  Review Form -->
+            <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+
+              <!--  Live Preview -->
+              <blockquote >
+                <strong>{{reviewCtrl.review.stars}} Stars</strong>
+                {{reviewCtrl.review.body}}
+                <cite class="clearfix">—{{reviewCtrl.review.author}}</cite>
+              </blockquote>
+
+              <!--  Review Form -->
+              <h4>Submit a Review</h4>
+              <fieldset class="form-group">
+                <select ng-model="reviewCtrl.review.stars" class="form-control" ng-options="stars for stars in [5,4,3,2,1]" title="Stars" required>
+                  <option value="">Rate the Product</option>
+                </select>
+              </fieldset>
+              <fieldset class="form-group">
+                <textarea ng-model="reviewCtrl.review.body" class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
+              </fieldset>
+              <fieldset class="form-group">
+                <input ng-model="reviewCtrl.review.author" type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" required/>
+              </fieldset>
+              <fieldset class="form-group">
+                <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
+              </fieldset>
+            </form>
+          </div>
+
+        </section>
+      </div>
+
+    </div>
+  </body>
+</html>
+
+/////////////////////////////////// L3 S3 FORM STYLING ///////////////////////////////////////////////////////
+.ng-invalid.ng-dirty {
+ border-color: red;
+}
+.ng-valid.ng-dirty {
+ border-color: green;
+}
+
+/////////////////////////////////// L3 S3 REVIEW CREATED ON ///////////////////////////////////////////////////////
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+
+  <body ng-controller="StoreController as store">
+    <!--  Store Header  -->
+    <header>
+      <h1 class="text-center">Flatlander Crafted Gems</h1>
+      <h2 class="text-center">– an Angular store –</h2>
+    </header>
+
+    <!--  Products Container  -->
+    <div class="list-group">
+      <!--  Product Container  -->
+      <div class="list-group-item" ng-repeat="product in store.products">
+        <h3>{{product.name}} <em class="pull-right">{{product.price | currency}}</em></h3>
+
+        <!-- Image Gallery  -->
+        <div ng-controller="GalleryController as gallery"  ng-show="product.images.length">
+          <div class="img-wrap">
+            <img ng-src="{{product.images[gallery.current]}}" />
+          </div>
+          <ul class="img-thumbnails clearfix">
+            <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+              <img ng-src="{{image}}" />
+            </li>
+          </ul>
+        </div>
+
+        <!-- Product Tabs  -->
+        <section ng-controller="TabController as tab">
+          <ul class="nav nav-pills">
+            <li ng-class="{ active:tab.isSet(1) }">
+              <a href ng-click="tab.setTab(1)">Description</a>
+            </li>
+            <li ng-class="{ active:tab.isSet(2) }">
+              <a href ng-click="tab.setTab(2)">Specs</a>
+            </li>
+            <li ng-class="{ active:tab.isSet(3) }">
+              <a href ng-click="tab.setTab(3)">Reviews</a>
+            </li>
+          </ul>
+
+          <!--  Description Tab's Content  -->
+          <div ng-show="tab.isSet(1)">
+            <h4>Description</h4>
+            <blockquote>{{product.description}}</blockquote>
+          </div>
+
+          <!--  Spec Tab's Content  -->
+          <div ng-show="tab.isSet(2)">
+            <h4>Specs</h4>
+            <blockquote>Shine: {{product.shine}}</blockquote>
+          </div>
+
+          <!--  Review Tab's Content  -->
+          <div ng-show="tab.isSet(3)">
+            <!--  Product Reviews List -->
+            <ul>
+              <h4>Reviews</h4>
+              <li ng-repeat="review in product.reviews">
+                <blockquote>
+                  <strong>{{review.stars}} Stars</strong>
+                  {{review.body}}
+                  <cite class="clearfix">—{{review.author}} on {{review.createdOn | date:'MM/dd/yyyy @ h:mma'}}</cite>
+                </blockquote>
+              </li>
+            </ul>
+
+            <!--  Review Form -->
+            <form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewCtrl.addReview(product)">
+
+              <!--  Live Preview -->
+              <blockquote >
+                <strong>{{reviewCtrl.review.stars}} Stars</strong>
+                {{reviewCtrl.review.body}}
+                <cite class="clearfix">—{{reviewCtrl.review.author}}</cite>
+              </blockquote>
+
+              <!--  Review Form -->
+              <h4>Submit a Review</h4>
+              <fieldset class="form-group">
+                <select ng-model="reviewCtrl.review.stars" class="form-control" ng-options="stars for stars in [5,4,3,2,1]" title="Stars">
+                  <option value>Rate the Product</option>
+                </select>
+              </fieldset>
+              <fieldset class="form-group">
+                <textarea ng-model="reviewCtrl.review.body" class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
+              </fieldset>
+              <fieldset class="form-group">
+                <input ng-model="reviewCtrl.review.author" type="email" class="form-control" placeholder="jimmyDean@example.org" title="Email" />
+              </fieldset>
+              <fieldset class="form-group">
+                <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
+              </fieldset>
+            </form>
+          </div>
+
+        </section>
+      </div>
+
+    </div>
+  </body>
+</html>
+
+/////////////////////////////////// L3 S3 REFACTORING DESCRIPTION  ///////////////////////////////////////////////////////
+
+          <div ng-include="'product-description.html'" ng-show="tab.isSet(1)">
+
+          </div>
+
+/////////////////////////////////// L4 S1 ELEMENT DIRECTIVES  ///////////////////////////////////////////////////////
+app.directive('productDescription', function(){
+ return {
+   restrict: 'E',
+   templateUrl: 'product-description.html'
+ };
+});
+
+          <product-description ng-show="tab.isSet(1)">
+          </product-description>
+
+/////////////////////////////////// L4 S1 ATTRIBUTE DIRECTIVES  ///////////////////////////////////////////////////////
+
+          <div product-specs ng-show="tab.isSet(2)">
+
+          </product-specs>
+          </div>
+
+/////////////////////////////////// L4 S2 REFACTORING PRODUCT  TABS  ///////////////////////////////////////////////////////
+index.html
+ <product-tabs> </product-tabs>
+
+product-tabs.html
+<section >
+           <ul class="nav nav-pills">
+            <li ng-class="{ active:tab.isSet(1) }">
+              <a href ng-click="tab.setTab(1)">Description</a>
+            </li>
+            <li ng-class="{ active:tab.isSet(2) }">
+              <a href ng-click="tab.setTab(2)">Specs</a>
+            </li>
+            <li ng-class="{ active:tab.isSet(3) }">
+              <a href ng-click="tab.setTab(3)">Reviews</a>
+            </li>
+          </ul>
+
+          <!--  Description Tab's Content  -->
+          <div ng-show="tab.isSet(1)" ng-include="'product-description.html'">
+          </div>
+
+          <!--  Spec Tab's Content  -->
+          <div product-specs ng-show="tab.isSet(2)"></div>
+
+          <!--  Review Tab's Content  -->
+          <product-reviews ng-show="tab.isSet(3)"></product-reviews>
+</section>
+
+app.js
+app.directive('productTabs', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'product-tabs.html',
+    controller: function() {
+      this.tab = 1;
+
+      this.isSet = function(checkTab) {
+        return this.tab === checkTab;
+      };
+
+      this.setTab = function(activeTab) {
+        this.tab = activeTab;
+      };
+    },
+    controllerAs: 'tab'
+  };
+});
+
+/////////////////////////////////// L4 S2 REFACTORING PRODUCT  GALLERY  ///////////////////////////////////////////////////////
+ index.html
+ <product-gallery> </product-gallery>
+
+ app.js
+ app.directive('productGallery', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'product-gallery.html',
+    controller: function() {
+      this.current = 0;
+      this.setCurrent = function(imageNumber) {
+        this.current = imageNumber || 0;
+      };
+    },
+    controllerAs: 'gallery'
+  };
+});
+
+product-gallery.html
+        <div ng-show="product.images.length">
+          <div class="img-wrap">
+            <img ng-src="{{product.images[gallery.current]}}" />
+          </div>
+          <ul class="img-thumbnails clearfix">
+            <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+              <img ng-src="{{image}}" />
+            </li>
+          </ul>
+        </div> 
+
+/////////////////////////////////// L5 S1 REFACTORING INTO A MODULE ///////////////////////////////////////////////////////
+index.html
+<script type="text/javascript" src="products.js"></script>
+
+app.js
+var app = angular.module('gemStore', ['store-directives']);
+ 
+products.js
+var app = angular.module('store-directives', []);
+  
+app.directive("productDescription", function() {...
+
+
+  
+
