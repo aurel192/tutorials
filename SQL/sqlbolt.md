@@ -214,9 +214,9 @@ ORDER BY Rating DESC
 |Manager		|Shirlee M.|	1e		|    3|
 |Manager		|Daria O.|	2w		|    6|
 
-http://i.stack.imgur.com/1UKp7.png
 
 ####     	SQL Joins
+![SQL Joins](http://www.codeproject.com/KB/database/Visual_SQL_Joins/Visual_SQL_JOINS_orig.jpg "SQL Joins")
 
  ____  ____                 ____  ____
 /A   \/   B\               /A   \/   B\
