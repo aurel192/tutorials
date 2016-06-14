@@ -1,3 +1,4 @@
+:octocat:  
 [http://sqlbolt.com/lesson](SQLBOLT.COM)
 
 http://www.tutorialspoint.com/execute_sql_online.php
