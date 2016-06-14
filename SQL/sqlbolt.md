@@ -215,7 +215,7 @@ ORDER BY Rating DESC
 |Manager		|Daria O.|	2w		|    6|
 
 
-####     	[SQL Joins]
+####     	SQL Joins
 ![SQL Joins](http://www.codeproject.com/KB/database/Visual_SQL_Joins/Visual_SQL_JOINS_orig.jpg "SQL Joins")
 
  ____  ____                 ____  ____
