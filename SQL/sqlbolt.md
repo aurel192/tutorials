@@ -21,23 +21,23 @@ http://www.tutorialspoint.com/execute_sql_online.php
 |13	|Brave		|Brenda Chapman	|2012	|102|
 |14	|Monsters Uni.	|Dan Scanlon	|2013	|110|
 
-1. Find the movie with a row id of 6
+1.Find the movie with a row id of 6
 ```sql
 SELECT * FROM movies
 WHERE Id = 
 ```
 
-2. Find the movies released in the years between 2000 and 2010
+2.Find the movies released in the years between 2000 and 2010
 ```sql
 SELECT * FROM movies
 WHERE Year BETWEEN 2000 and 2010
 ```
-3. Find the movies not released in the years between 2000 and 2010
+3.Find the movies not released in the years between 2000 and 2010
 ```sql
 SELECT * FROM movies
 WHERE Year NOT BETWEEN 2000 and 2010
 ```
-4. Find the first 5 Pixar movies and their release year
+4.Find the first 5 Pixar movies and their release year
 ```sql
 SELECT title,year FROM movies
 ORDER BY year
@@ -45,46 +45,46 @@ LIMIT 5
 ```
 ###	SQL Lesson 3: Queries with constraints (Pt. 2)
 
-1. Find all the Toy Story movies
+1.Find all the Toy Story movies
 ```sql
 SELECT * FROM movies
 WHERE Title LIKE "Toy%"
 ```
-2. Find all the movies directed by John Lasseter
+2.Find all the movies directed by John Lasseter
 ```sql
 SELECT * FROM movies
 WHERE director = "John Lasseter"
 ```
-3. Find all the movies (and director) not directed by John Lasseter
+3.Find all the movies (and director) not directed by John Lasseter
 ```sql
 SELECT Title, Director FROM movies
 WHERE director != "John Lasseter"
 ```
-4. Find all the WALL-* movies
+4.Find all the WALL-* movies
 ```sql
 SELECT * FROM movies
 WHERE title LIKE "WALL%"
 ```
 ###	SQL Lesson 4: Filtering and sorting Query results
 
-1. List all directors of Pixar movies (alphabetically), without duplicates
+1.List all directors of Pixar movies (alphabetically), without duplicates
 ```sql
 SELECT DISTINCT director FROM movies
 ORDER BY director
 ```
-2. List the last four Pixar movies released (ordered from most recent to least)
+2.List the last four Pixar movies released (ordered from most recent to least)
 ```sql
 SELECT title FROM movies
 ORDER BY Year DESC
 LIMIT 4 
 ```
-3. List the first five Pixar movies sorted alphabetically
+3.List the first five Pixar movies sorted alphabetically
 ```sql
 SELECT title FROM movies
 ORDER BY title 
 LIMIT 5
  ```
-4. List the next five Pixar movies sorted alphabetically
+4.List the next five Pixar movies sorted alphabetically
 ```sql
 SELECT title FROM movies
 ORDER BY title ASC
@@ -106,31 +106,31 @@ Ecatepec de M.	Mexico		1742000		19.601841	-99.050674
 Montreal	Canada		1717767		45.501689	-73.567256
 Chicago		United States	2718782		41.878114	-87.629798
 
-1. List all the Canadian cities and their populations
+1.List all the Canadian cities and their populations
 ```sql
 SELECT City,Population FROM North_american_cities
 WHERE Country = "Canada"
 ```
-2. Order all the cities in the United States by their latitude from north to south 
+2.Order all the cities in the United States by their latitude from north to south 
 ```sql
 SELECT * FROM North_american_cities
 WHERE Country = "United States"
 ORDER BY Latitude DESC
 ```
-3. List all the cities west of Chicago, ordered from west to east
+3.List all the cities west of Chicago, ordered from west to east
 ```sql
 SELECT city, longitude FROM north_american_cities
 WHERE longitude < -87.629798
 ORDER BY longitude ASC
 ```
-4. List the two largest cities in Mexico (by population)
+4.List the two largest cities in Mexico (by population)
 ```sql
 SELECT * FROM north_american_cities
 WHERE Country = "Mexico"
 ORDER BY Population DESC
 LIMIT 2
 ```
-5. List the third and fourth largest cities (by population) in the United States and their population
+5.List the third and fourth largest cities (by population) in the United States and their population
 ```sql
 SELECT City,Population FROM north_american_cities
 WHERE Country = "United States"
@@ -164,14 +164,14 @@ WHERE condition(s)
 ORDER BY column, … ASC/DESC
 LIMIT num_limit OFFSET num_offset;
 ```
-1. Find the domestic and international sales for each movie
+1.Find the domestic and international sales for each movie
 ```sql
 SELECT Title,Domestic_sales,International_sales
 FROM Movies
 INNER JOIN Boxoffice
     ON Movies.Id = Boxoffice.Movie_id
 ```
-2. Show the sales numbers for each movie that did better internationally rather than domestically
+2.Show the sales numbers for each movie that did better internationally rather than domestically
 ```sql
 SELECT Title,Domestic_sales,International_sales
 FROM Movies
@@ -179,7 +179,7 @@ INNER JOIN Boxoffice
     ON Movies.Id = Boxoffice.Movie_id
 WHERE International_sales > Domestic_sales
 ```
-3. List all the movies by their ratings in descending order
+3.List all the movies by their ratings in descending order
 ```sql
 SELECT Title, Rating
 FROM Movies
@@ -258,15 +258,15 @@ WHERE condition(s)
 ORDER BY column, … ASC/DESC
 LIMIT num_limit OFFSET num_offset;
 ```
-1. Find the list of all buildings that have employees
+1.Find the list of all buildings that have employees
 ```sql
 SELECT DISTINCT building FROM employees
 ```
-2. Find the list of all buildings and their capacity
+2.Find the list of all buildings and their capacity
 ```sql
 SELECT * FROM Buildings
 ```
-3. List all buildings and the distinct employee roles in each building (including empty buildings)
+3.List all buildings and the distinct employee roles in each building (including empty buildings)
 ```sql
 SELECT DISTINCT building_name, role 
 FROM buildings 
@@ -275,12 +275,12 @@ FROM buildings
 ```
 ###	SQL Lesson 8: A short note on NULLs
 
-1. Find the name and role of all employees who have not been assigned to a building
+1.Find the name and role of all employees who have not been assigned to a building
 ```sql
 SELECT name,role FROM employees
 WHERE building IS NULL
 ```
-2. Find the names of the buildings that hold no employees
+2.Find the names of the buildings that hold no employees
 ```sql
 SELECT Building_name FROM Buildings
 LEFT JOIN Employees
@@ -289,53 +289,53 @@ WHERE building IS NULL
 ```
 ###	SQL Lesson 9: Queries with expressions
 
-1. List all movies and their combined sales in millions of dollars
+1.List all movies and their combined sales in millions of dollars
 ```sql
 SELECT Title, (Domestic_sales+International_sales)/1000000 as Income
 FROM Movies INNER JOIN Boxoffice
 WHERE Movies.Id = Boxoffice.Movie_id
 ```
-2. List all movies and their ratings in percent
+2.List all movies and their ratings in percent
 ```sql
 SELECT Title,Rating*10 as Rating
 FROM Movies INNER JOIN Boxoffice
 WHERE Movies.Id = Boxoffice.Movie_id
 ```
-3. List all movies that were released on even number years
+3.List all movies that were released on even number years
 ```sql
 SELECT * FROM Movies
 WHERE Year%2==0
 ```
 ###	SQL Lesson 10: Queries with aggregates (Pt. 1)
     
-1. Find the longest time that an employee has been at the studio
+1.Find the longest time that an employee has been at the studio
 ```sql
 SELECT Name,MAX(Years_employed) FROM employees
 ```
-2. For each role, find the average number of years employed by employees in that role
+2.For each role, find the average number of years employed by employees in that role
 ```sql
 SELECT role, AVG(years_employed) as Average_years_employed
 FROM employees
 GROUP BY role
 ```
-3. Find the total number of employee years worked in each building
+3.Find the total number of employee years worked in each building
 ```sql
 SELECT Building,SUM(Years_employed) FROM Employees
 GROUP BY Building
 ```
 ###	SQL Lesson 11: Queries with aggregates (Pt. 2)
     
-1. Find the number of Artists in the studio (without a HAVING clause)
+1.Find the number of Artists in the studio (without a HAVING clause)
 ```sql
 SELECT Count(Role)  FROM employees
 WHERE Role IS "Artist"
 ```
-2. Find the number of Employees of each role in the studio
+2.Find the number of Employees of each role in the studio
 ```sql
 SELECT Role,COUNT(Role) FROM employees
 GROUP BY Role
 ```
-3. Find the total number of years employed by all Engineers
+3.Find the total number of years employed by all Engineers
 ```sql
 SELECT SUM(Years_employed) FROM employees
 WHERE Role IS "Engineer"
