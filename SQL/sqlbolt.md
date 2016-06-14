@@ -1,4 +1,5 @@
 http://sqlbolt.com/lesson
+
 http://www.tutorialspoint.com/execute_sql_online.php
 
 ###	SQL Lesson 2: Queries with constraints (Pt. 1)
