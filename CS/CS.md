@@ -433,6 +433,7 @@ Id=333 Name=Rob
 */
 ```
 ### Interfaces
+```csharp
 using System;
 namespace Kudvenkat30Interfaces {
  
@@ -506,7 +507,9 @@ I2 Interface Method
 I1 Interface Method
 I1 Interface Method
 */
-Abstract Classes
+```
+### Abstract Classes
+```csharp
 using System;
  
 namespace Kudvenkat32AbstractClasses {
@@ -540,7 +543,9 @@ namespace Kudvenkat32AbstractClasses {
 Print Method
 Print2()
  */
-Abstract Classes vs Interfaces
+ ```
+### Abstract Classes vs Interfaces
+```csharp
 using System;
  
 namespace Kudvenkat33DiffBetwAbstractCAndInterfaces{
@@ -631,7 +636,9 @@ D implementation
 AA
 BB
 */
-Delegate
+```
+### Delegate
+```csharp
 using System;
  
 namespace Kudvenkat36Delegate {
@@ -690,7 +697,9 @@ John promoted
 Mary promoted
 John promoted
 */
-Exception Handling
+```
+### Exception Handling
+```csharp
 using System;
 using System.IO;
  
@@ -752,7 +761,6 @@ First Number:
 Second Number:
 3
 Result = 3
- 
 FormatException
 First Number:
 5
@@ -769,7 +777,9 @@ Second Number:
 Current Exception:FileNotFoundException
 Inner Exception:DivideByZeroException
 */
-Custom Exceptions
+```
+### Custom Exceptions
+```csharp
 using System;
 using System.Runtime.Serialization;
  
@@ -794,7 +804,9 @@ namespace Kudvenkat42CustomExceptions {
         public UserAlreadyLoggedInException(SerializationInfo info, StreamingContext context,string message, Exception innerException) : base(message, innerException){}
     }
 }
-Exception Handling abuse
+```
+### Exception Handling abuse
+```csharp
 using System;
 namespace Kudvenkat43ExceptionHandlingAbuse{
     class Program{
@@ -832,7 +844,9 @@ namespace Kudvenkat43ExceptionHandlingAbuse{
         }
     }
 }
-Enums
+```
+### Enums
+```csharp
 using System;
  
 namespace Kudvenkat45Enums {
@@ -908,8 +922,10 @@ Kudvenkat45Enums.Gender[]
 Unknown
 Male
 Female
-*/                                                                                                        
-Access Modifiers
+*/     
+```
+### Access Modifiers
+```csharp
 using System;
  
 namespace Kudvenkat49AccessModifiers {
@@ -950,7 +966,9 @@ Protected Internal: Anywhere within the containing assembly, and from within a d
 Default access modifier For types (class, delegeate, struct) is internal.
 Default access modifier For types members (method) is private.   
 */
-Attributes
+```
+### Attributes
+```csharp
 using System;
 using System.Collections.Generic;
  
@@ -977,7 +995,9 @@ namespace Kudvenkat52Attributes {
         }
     }
 }
-Reflection
+```
+### Reflection
+```csharp
 using System;
 using System.Reflection;
  
@@ -1045,8 +1065,9 @@ System.Type GetType
 Void.ctor(Int32, System.String)
 Void.ctor()
 */
-Reflection Example
- 
+```
+### Reflection Example
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -1154,8 +1175,9 @@ namespace Kudvenkat55LateBindingUsingReflectionn {
         }
     }   
 }
-Generics
- 
+```
+### Generics
+```csharp
 using System;
  
 namespace Kudvenkat56Generics {
@@ -1203,7 +1225,9 @@ namespace Kudvenkat56Generics {
 Null
 Not Equal
 */
-Why Override ToString
+```
+### Why Override ToString
+```csharp
 using System;
  
 namespace Kudvenkat57OverrideToSting {
@@ -1273,7 +1297,9 @@ True
 False
 False
 */
-String and StringBuilder
+```
+### String and StringBuilder
+```csharp
 using System;
 using System.Text;
  
@@ -1353,7 +1379,9 @@ namespace Kudvenkat63PartialMethod {
 PublicMethod Invoked
 SamplePartialMethod Invoked
 */
-Overloading Indexers
+```
+### Overloading Indexers
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -1460,7 +1488,8 @@ Name of Employee With Id = 1: CHANGEDTOO
 Name of Employee With Id = 7: CHANGEDTOO
 ID of Employee With Name = CHANGEDTOO: 7
 */
-Making method parameters optinal by specyfing parameter defaults, and Optional Attribute
+```
+### Making method parameters optinal by specyfing parameter defaults, and Optional Attribute
  
 using System;
 using System.Runtime.InteropServices;
