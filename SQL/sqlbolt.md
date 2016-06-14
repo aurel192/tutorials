@@ -1,4 +1,4 @@
-http://sqlbolt.com/lesson
+[http://sqlbolt.com/lesson](SQLBOLT.COM)
 
 http://www.tutorialspoint.com/execute_sql_online.php
 
@@ -24,9 +24,8 @@ http://www.tutorialspoint.com/execute_sql_online.php
 1.Find the movie with a row id of 6
 ```sql
 SELECT * FROM movies
-WHERE Id = 
+WHERE Id = 6
 ```
-
 2.Find the movies released in the years between 2000 and 2010
 ```sql
 SELECT * FROM movies
@@ -43,7 +42,7 @@ SELECT title,year FROM movies
 ORDER BY year
 LIMIT 5
 ```
-###	SQL Lesson 3: Queries with constraints (Pt. 2)
+###	[SQL Lesson 3: Queries with constraints (Pt. 2)](http://sqlbolt.com/lesson/select_queries_with_constraints_pt_2)
 
 1.Find all the Toy Story movies
 ```sql
@@ -65,7 +64,7 @@ WHERE director != "John Lasseter"
 SELECT * FROM movies
 WHERE title LIKE "WALL%"
 ```
-###	SQL Lesson 4: Filtering and sorting Query results
+###	[SQL Lesson 4: Filtering and sorting Query results](http://sqlbolt.com/lesson/filtering_sorting_query_results)
 
 1.List all directors of Pixar movies (alphabetically), without duplicates
 ```sql
@@ -90,7 +89,7 @@ SELECT title FROM movies
 ORDER BY title ASC
 LIMIT 5 OFFSET 5
 ```
-###	SQL Lesson 5:  SQL Review: Simple SELECT Queries
+###	[SQL Lesson 5:  SQL Review: Simple SELECT Queries](http://sqlbolt.com/lesson/select_queries_review)
 
 |City		|Country		|Population	|Latitude	|Longitude|
 |------|--------|-----------|----------|---------|
@@ -138,7 +137,7 @@ WHERE Country = "United States"
 ORDER BY Population DESC
 LIMIT 2 OFFSET 2
 ```
-###	SQL Lesson 6: Multi-table queries with JOINs
+###	[SQL Lesson 6: Multi-table queries with JOINs](http://sqlbolt.com/lesson/select_queries_with_joins)
 
 |Movie_id	|Rating	|Domestic_sales	|International_sales|
 |--------|-------|---------------|------------------|
@@ -189,7 +188,7 @@ INNER JOIN Boxoffice
     ON Movies.Id = Boxoffice.Movie_id
 ORDER BY Rating DESC
 ```  
-###	SQL Lesson 7: OUTER JOINs
+###	[SQL Lesson 7: OUTER JOINs](http://sqlbolt.com/lesson/select_queries_with_outer_joins)
 
 |Building_name|Capacity|
 |-------------|-------|
@@ -215,7 +214,7 @@ ORDER BY Rating DESC
 |Manager		|Daria O.|	2w		|    6|
 
 
-####     	SQL Joins
+####     	[SQL Joins]
 ![SQL Joins](http://www.codeproject.com/KB/database/Visual_SQL_Joins/Visual_SQL_JOINS_orig.jpg "SQL Joins")
 
  ____  ____                 ____  ____
@@ -277,7 +276,7 @@ FROM buildings
   LEFT JOIN employees
     ON building_name = building;
 ```
-###	SQL Lesson 8: A short note on NULLs
+###	[SQL Lesson 8: A short note on NULLs](http://sqlbolt.com/lesson/select_queries_with_nulls)
 
 1.Find the name and role of all employees who have not been assigned to a building
 ```sql
@@ -291,7 +290,7 @@ LEFT JOIN Employees
 ON Building_name = Building
 WHERE building IS NULL
 ```
-###	SQL Lesson 9: Queries with expressions
+###	[SQL Lesson 9: Queries with expressions](http://sqlbolt.com/lesson/select_queries_with_expressions)
 
 1.List all movies and their combined sales in millions of dollars
 ```sql
@@ -310,7 +309,7 @@ WHERE Movies.Id = Boxoffice.Movie_id
 SELECT * FROM Movies
 WHERE Year%2==0
 ```
-###	SQL Lesson 10: Queries with aggregates (Pt. 1)
+###	[SQL Lesson 10: Queries with aggregates (Pt. 1)](http://sqlbolt.com/lesson/select_queries_with_aggregates)
     
 1.Find the longest time that an employee has been at the studio
 ```sql
@@ -327,7 +326,7 @@ GROUP BY role
 SELECT Building,SUM(Years_employed) FROM Employees
 GROUP BY Building
 ```
-###	SQL Lesson 11: Queries with aggregates (Pt. 2)
+###	[SQL Lesson 11: Queries with aggregates (Pt. 2)](http://sqlbolt.com/lesson/select_queries_with_aggregates_pt_2)
     
 1.Find the number of Artists in the studio (without a HAVING clause)
 ```sql
@@ -345,7 +344,7 @@ SELECT SUM(Years_employed) FROM employees
 WHERE Role IS "Engineer"
 ```
 
-###	SQL Lesson 12: Order of execution of a Query
+###	[SQL Lesson 12: Order of execution of a Query](http://sqlbolt.com/lesson/select_queries_order_of_execution)
     
     
     
