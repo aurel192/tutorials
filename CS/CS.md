@@ -44,7 +44,8 @@ Area = 113,076
 Circle.Print()
 */
 ```
-Inheritance
+###Inheritance
+```csharp
 using System;
 namespace Kudvenkat21Inheritance {
     public class ParentClass {
@@ -106,7 +107,9 @@ Derived Class controlling Parent class
 ChildClass Constructor called
 FTEFirst FTELast
 */
-Method Hiding and Polymorpism
+```
+### Method Hiding and Polymorpism
+```csharp
 using System;
 namespace Kudvenkat22MethodHiding {
     class Employee {
@@ -155,7 +158,9 @@ FullTimeEmployee FT
 PartTimeEmployee PTE
 PartTimeEmployee Emp
 */
-Method Hiding vs Method Overriding
+```
+### Method Hiding vs Method Overriding
+```csharp
 using System;
 namespace Kudvenkat24MethodOverridingVsMethodHiding {
     public class BaseClass {
@@ -200,8 +205,9 @@ Base Class
 Derived Class MH
 Derived Class MO
 */
-Method Overloading
- 
+```
+### Method Overloading
+```csharp
 using System;
 namespace Kudvenkat25MethodOverloading {
     class Program {
@@ -248,7 +254,9 @@ namespace Kudvenkat25MethodOverloading {
 Sum = 306
 306
 */
-Properties
+```
+### Properties
+```csharp
 using System;
 namespace Kudvenkat26WhyProperties {
     class Student {  // Class is reference type
@@ -372,7 +380,9 @@ Id = 321  Name = Third
 Id = 0  Name =
 Id = 0  Name = C3Name
 */
-Structs
+```
+### Structs
+```csharp
 using System;
 namespace Kudvenkat28Structs {
     public struct Customer {
@@ -421,7 +431,8 @@ Id=0 Name=
 Id=222 Name=John
 Id=333 Name=Rob
 */
-Interfaces
+```
+### Interfaces
 using System;
 namespace Kudvenkat30Interfaces {
  
