@@ -1,3 +1,5 @@
+## [C# Tutorials by Kudvenkat](https://www.youtube.com/playlist?list=PLAC325451207E3105)
+
 ### Static and Instance
 ```csharp
 using System;
@@ -1490,7 +1492,7 @@ ID of Employee With Name = CHANGEDTOO: 7
 */
 ```
 ### Making method parameters optinal by specyfing parameter defaults, and Optional Attribute
- 
+ ```csharp
 using System;
 using System.Runtime.InteropServices;
  
@@ -1574,8 +1576,9 @@ a = 7
 b = 10
 c = 14
 */
-Dictionary
- 
+```
+### Dictionary
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -1686,8 +1689,9 @@ ID 101 Name Mark Salary 5000
 dictionaryCustomers.Count() = 3
 dictionaryCustomers.Count(kvp => kvp.Value.Salary > 4000) = 2
 */
-List Collection, Array to List, List to Dictionary
- 
+```
+### List Collection, Array to List, List to Dictionary
+```csharp
             Customer C1 = new Customer() { ID = 111, Name = "Mark", Salary = 5000, Type = "RetailCustomer" };
             Customer C5 = new Customer() { ID = 555, Name = "Otos", Salary = 3500, Type = "CorporateCustomer" };
  
@@ -1795,8 +1799,9 @@ Sorting List of Simple and Complex types
             }
         }       
     }
-Searching in List and Dictionary
- 
+```
+### Searching in List and Dictionary
+ ```csharp
             List<Country> listCountries = new List<Country>();
             listCountries.Add(CNT1);
             listCountries.Add(CNT2);
@@ -1838,7 +1843,9 @@ Searching in List and Dictionary
         public string Code { get; set; }
         public string Capital { get; set; }
     }
-Queue
+```
+### Queue
+```csharp
             Customer C1 = new Customer() { ID = 101, Name = "Mark", Gender = "Male" };
             Customer C2 = new Customer() { ID = 102, Name = "Pamm", Gender = "Female" };
             Customer C3 = new Customer() { ID = 103, Name = "John", Gender = "Male" };
@@ -1881,7 +1888,9 @@ Queue
 103 John Total items in Queue: 3
 C1 does Not exist
 */
-Stack
+```
+### Stack
+```csharp
             Stack<Customer> stackCustomers = new Stack<Customer>();  // LIFO
             stackCustomers.Push(C1);
             stackCustomers.Push(C2);
@@ -1918,8 +1927,9 @@ Stack
 103 John        Total items in Queue: 3
 C1 exists
 */
-Thread
- 
+```
+### Thread
+ ```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -2090,7 +2100,9 @@ T11 is still working
 T11 Completed!
 Main Completed
 */
-Deadlock
+```
+### Deadlock
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -2219,7 +2231,9 @@ T2 suspended for 1 sec
 T1 back in action and trying to acquire lock on 102
 T2 back in action and trying to acquire lock on 101
 */
-LINQ, Anonymous Method, Lambda Expression, Func Delegate
+```
+### LINQ, Anonymous Method, Lambda Expression, Func Delegate
+```csharp
             // LINQ
             string[] PersonList = { "Joe", "Janet", "Peet", "Kelly", "Tom", "Aliz" };
             IEnumerable<string> query1 = from p in PersonList 
@@ -2255,8 +2269,9 @@ LINQ, Anonymous Method, Lambda Expression, Func Delegate
  
             Func<int, int, string> funcDelegate = (first, second) => "Sum=" + (first + second).ToString();
             Console.WriteLine(funcDelegate(10,20));
-Extension Method
- 
+```
+### Extension Method
+```csharp
         WriteColor("ID: " + res4.ID + "Name: " + res4.Name + "\n", ConsoleColor.Yellow, ConsoleColor.DarkRed);
  
         public static void WriteColor(this object element, ConsoleColor fgc, ConsoleColor bgc) {
@@ -2264,6 +2279,7 @@ Extension Method
             Console.BackgroundColor = bgc;
             Console.Write(element);
         }
-LINQ to SQL, Entity Framework etc
+```
+### LINQ to SQL, Entity Framework etc
  
  
