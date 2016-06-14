@@ -1,7 +1,7 @@
 http://sqlbolt.com/lesson
 http://www.tutorialspoint.com/execute_sql_online.php
-=========================================================================================
-	SQL Lesson 2: Queries with constraints (Pt. 1)
+
+###	SQL Lesson 2: Queries with constraints (Pt. 1)
 
 |Id	|Title		|Director	|Year	|Length_minutes|
 |-------|---------------|---------------|-------|--------------|
@@ -37,8 +37,7 @@ SELECT title,year FROM movies
 ORDER BY year
 LIMIT 5
 
-=========================================================================================
-	SQL Lesson 3: Queries with constraints (Pt. 2)
+###	SQL Lesson 3: Queries with constraints (Pt. 2)
 
 1. Find all the Toy Story movies
 SELECT * FROM movies
@@ -56,8 +55,7 @@ WHERE director != "John Lasseter"
 SELECT * FROM movies
 WHERE title LIKE "WALL%"
 
-=========================================================================================
-	SQL Lesson 4: Filtering and sorting Query results
+###	SQL Lesson 4: Filtering and sorting Query results
 
 1. List all directors of Pixar movies (alphabetically), without duplicates
 SELECT DISTINCT director FROM movies
@@ -78,8 +76,7 @@ SELECT title FROM movies
 ORDER BY title ASC
 LIMIT 5 OFFSET 5
 
-=========================================================================================
-	SQL Lesson 5:  SQL Review: Simple SELECT Queries
+###	SQL Lesson 5:  SQL Review: Simple SELECT Queries
 
 City		Country		Population	Latitude	Longitude
 Guadalajara	Mexico		1500800		20.659699	-103.349609
@@ -94,8 +91,6 @@ Los Angeles	United States	3884307		34.052234	-118.243685
 Ecatepec de M.	Mexico		1742000		19.601841	-99.050674
 Montreal	Canada		1717767		45.501689	-73.567256
 Chicago		United States	2718782		41.878114	-87.629798
-
-
 
 1. List all the Canadian cities and their populations
 SELECT City,Population FROM North_american_cities
@@ -123,8 +118,7 @@ WHERE Country = "United States"
 ORDER BY Population DESC
 LIMIT 2 OFFSET 2
 
-=========================================================================================
-	SQL Lesson 6: Multi-table queries with JOINs
+###	SQL Lesson 6: Multi-table queries with JOINs
 
 Movie_id	Rating	Domestic_sales	International_sales
 5		8.2	380843261	555900000
@@ -150,7 +144,6 @@ WHERE condition(s)
 ORDER BY column, … ASC/DESC
 LIMIT num_limit OFFSET num_offset;
 
-
 1. Find the domestic and international sales for each movie
 SELECT Title,Domestic_sales,International_sales
 FROM Movies
@@ -171,8 +164,7 @@ INNER JOIN Boxoffice
     ON Movies.Id = Boxoffice.Movie_id
 ORDER BY Rating DESC
     
-=========================================================================================
-	SQL Lesson 7: OUTER JOINs
+###	SQL Lesson 7: OUTER JOINs
 
 Building_name	Capacity
 1e		        24
@@ -197,7 +189,7 @@ Manager		Daria O.	2w		    6
 
 http://i.stack.imgur.com/1UKp7.png
 
-                SQL Joins
+####     	SQL Joins
 
  ____  ____                 ____  ____
 /A   \/   B\               /A   \/   B\
@@ -255,8 +247,7 @@ FROM buildings
   LEFT JOIN employees
     ON building_name = building;
 
-=========================================================================================
-	SQL Lesson 8: A short note on NULLs
+###	SQL Lesson 8: A short note on NULLs
 
 1. Find the name and role of all employees who have not been assigned to a building
 SELECT name,role FROM employees
@@ -268,8 +259,7 @@ LEFT JOIN Employees
 ON Building_name = Building
 WHERE building IS NULL
 
-=========================================================================================
-	SQL Lesson 9: Queries with expressions
+###	SQL Lesson 9: Queries with expressions
 
 1. List all movies and their combined sales in millions of dollars
 SELECT Title, (Domestic_sales+International_sales)/1000000 as Income
@@ -285,8 +275,7 @@ WHERE Movies.Id = Boxoffice.Movie_id
 SELECT * FROM Movies
 WHERE Year%2==0
    
-=========================================================================================   
-    SQL Lesson 10: Queries with aggregates (Pt. 1)
+###	SQL Lesson 10: Queries with aggregates (Pt. 1)
     
 1. Find the longest time that an employee has been at the studio
 SELECT Name,MAX(Years_employed) FROM employees
@@ -300,8 +289,7 @@ GROUP BY role
 SELECT Building,SUM(Years_employed) FROM Employees
 GROUP BY Building
 
-=========================================================================================
-    SQL Lesson 11: Queries with aggregates (Pt. 2)
+###	SQL Lesson 11: Queries with aggregates (Pt. 2)
     
 1. Find the number of Artists in the studio (without a HAVING clause)
 SELECT Count(Role)  FROM employees
@@ -315,8 +303,8 @@ GROUP BY Role
 SELECT SUM(Years_employed) FROM employees
 WHERE Role IS "Engineer"
 
-=========================================================================================
-    SQL Lesson 12: Order of execution of a Query
+
+###	SQL Lesson 12: Order of execution of a Query
     
     
     
