@@ -1,5 +1,5 @@
-Static and Instance
- 
+### Static and Instance
+```csharp
 using System;
 namespace Kudvenkat20StaticAndInstance{
     class Circle{
@@ -43,6 +43,7 @@ Area = 78,525
 Area = 113,076
 Circle.Print()
 */
+```
 Inheritance
 using System;
 namespace Kudvenkat21Inheritance {
