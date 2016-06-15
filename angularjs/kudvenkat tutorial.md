@@ -133,7 +133,7 @@ var myApp = angular
 ```
 
 ### 05 TwoWay Binding
-<img src="http://3.bp.blogspot.com/-O8t0qot_LTI/VjkfL3fJ_fI/AAAAAAAAf88/faf5rlKViaQ/s1600/Two%2Bway%2Bbinding%2Bexample%2Bwith%2Bcomplext%2Bobject.png" width="150">
+<img src="http://3.bp.blogspot.com/-O8t0qot_LTI/VjkfL3fJ_fI/AAAAAAAAf88/faf5rlKViaQ/s1600/Two%2Bway%2Bbinding%2Bexample%2Bwith%2Bcomplext%2Bobject.png" width="200">
 ```html
 <!DOCTYPE html>
 <html ng-app="myModule">
@@ -209,6 +209,7 @@ var myApp = angular
 ```
 
 ### 06 ng-repeat, nesting ng-repeat
+<img src="http://1.bp.blogspot.com/-swjaMA47DkQ/VjnxBynvrSI/AAAAAAAAf98/WaQqtSEovSI/s1600/AngularJS%2Bng-repeat%2Bdirective.png" width="350">
 ```html
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -294,6 +295,7 @@ var myApp = angular
 ```
 
 ### 07 Handling Events
+<img src="http://2.bp.blogspot.com/-RuZnPBf8rdI/VjuuRAihIMI/AAAAAAAAf_Y/sOGHTgdnKWw/s1600/Handling%2Bevents%2Bin%2BAngularJS.png" width="200">
 ```html
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
