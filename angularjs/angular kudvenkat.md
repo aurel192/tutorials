@@ -793,16 +793,6 @@ var app = angular
     }); 
 ```
 
-
-### title
-<img src="" width="150">
-```html
-```
-```javascript
-```
-
-
-
 ### 13 Customer filter
 <img src="http://3.bp.blogspot.com/-N3yvz8DMi-I/VkOe3bnCHbI/AAAAAAAAgLU/UJ2eQ4SgjIk/s1600/Create%2Ba%2Bcustom%2Bfilter%2Bin%2BAngularJS.png" width="350">
 ```html
@@ -856,3 +846,25 @@ var app = angular
     }); 
 ```
 
+### title
+<img src="" width="150">
+```html
+```
+```javascript
+```
+
+
+### title
+<img src="" width="150">
+```html
+```
+```javascript
+```
+
+
+### title
+<img src="" width="150">
+```html
+```
+```javascript
+```
