@@ -370,6 +370,7 @@ var app = angular
 ```
 
 ### 08 Filters
+<img src="http://2.bp.blogspot.com/-Bpww9K7k--o/Vjz_AqeEyII/AAAAAAAAgAo/yk1cTGMx8Js/s1600/angularjs%2Bfilters%2Bexample.png" width="300">
 ```html
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -454,6 +455,7 @@ var app = angular
 ```
 
 ### 09 Sorting Data
+<img src="http://4.bp.blogspot.com/-auD4R-xXdcI/Vj471afFpWI/AAAAAAAAgE0/k49haWyNhbs/s1600/sorting%2Bdata%2Bin%2Bangularjs.png" width="150">
 ```html
 <!DOCTYPE html>
 <head>
