@@ -846,11 +846,54 @@ var app = angular
     }); 
 ```
 
-### title
-<img src="" width="150">
+### 14 ng-hide ng-show
+<img src="http://3.bp.blogspot.com/-HqMZygvtW0M/VkTr7ckzZ2I/AAAAAAAAgMY/lWXrwzfpi1w/s1600/angularjs%2Bng%2Bhide%2Bexample.png" width="150">
 ```html
+<!DOCTYPE html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>  
+</head>
+<body ng-app="myModule">
+    <div ng-controller="myController">
+        <input type="checkbox" ng-model="hideSalary" />Hide Salary
+        <br /><br />
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>City</th>
+                    <th ng-hide="hideSalary">Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees">
+                    <td> {{ employee.name }} </td>
+                    <td> {{ employee.gender}} </td>
+                    <td> {{ employee.city}} </td>
+                    <td ng-hide="hideSalary"> {{ employee.salary  }} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
 ```
 ```javascript
+var app = angular
+    .module("myModule", [])
+    .controller("myController", function ($scope) {
+
+        var employees = [
+            { name: "Ben", gender: "Male", city: "London", salary: 55000 },
+            { name: "Sara", gender: "Female", city: "Chennai", salary: 68000 },
+            { name: "Mark", gender: "Male", city: "Chicago", salary: 57000 },
+            { name: "Pam", gender: "Female", city: "London", salary: 53000 },
+            { name: "Todd", gender: "Male", city: "Chennai", salary: 60000 }
+        ];
+
+        $scope.employees = employees;
+    });
 ```
 
 
