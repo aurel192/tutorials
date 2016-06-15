@@ -709,6 +709,91 @@ var app = angular
 
 
 
+### 12 Filter by multiple properties
+<img src="http://4.bp.blogspot.com/-rBsIgG4EUsw/VkI9meRbChI/AAAAAAAAgKY/7_5EtM1qfu8/s1600/Angularjs%2Bfilter%2Bby%2Bmultiple%2Bproperties.png" width="150">
+```html
+<!DOCTYPE html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>  
+</head>
+<body ng-app="myModule">
+    <div ng-controller="myController">
+        <input type="text" placeholder="Search city & name" ng-model="searchText" /><br/><br/>
+        <input type="text" placeholder="Search name" ng-model="searchText.name" /><br/>
+        <input type="text" placeholder="Search city" ng-model="searchText.city" /><br/>
+        <input type="checkbox" ng-model="exactMatch" /> Exact Match
+        <br/>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Salary</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees | filter: searchText : exactMatch">
+                    <td> {{ employee.name }} </td>
+                    <td> {{ employee.gender }} </td>
+                    <td> {{ employee.salary  }} </td>
+                    <td> {{ employee.city }} </td>
+                </tr>                     
+            </tbody>
+        </table>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>Salary</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees | filter: search : exactMatch">
+                    <td> {{ employee.name }} </td>
+                    <td> {{ employee.gender }} </td>
+                    <td> {{ employee.salary  }} </td>
+                    <td> {{ employee.city }} </td>
+                </tr>                     
+            </tbody>
+        </table>   
+        
+    </div>
+</body>
+</html>
+```
+```javascript
+var app = angular
+    .module("myModule", [])
+    .controller("myController", function ($scope) {
+        var employees = [
+            { name: "Ben", gender: "Male", salary: 55000, city: "London" },
+            { name: "Sara", gender: "Female", salary: 68000, city: "Chennai" },
+            { name: "Mark", gender: "Male", salary: 57000, city: "London" },
+            { name: "Pam", gender: "Female", salary: 53000, city: "Chennai" },
+            { name: "Todd", gender: "Male", salary: 60000, city: "London" },
+        ];
+        $scope.employees = employees;        
+        $scope.search = function (item) {
+            if ($scope.searchText == undefined) {
+                return true;
+            }
+            else {
+                if (item.city.toLowerCase().indexOf($scope.searchText.toLowerCase()) != -1 ||
+                    item.name.toLowerCase().indexOf($scope.searchText.toLowerCase()) != -1)   {
+                        return true;
+                }
+            }
+            return false;
+        };        
+    }); 
+```
+
+
 ### title
 <img src="" width="150">
 ```html
