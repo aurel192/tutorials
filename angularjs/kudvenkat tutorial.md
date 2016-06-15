@@ -450,10 +450,83 @@ var app = angular
     });  
 ```
 
-### title
+### 09 Sorting Data
 ```html
+<!DOCTYPE html>
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+</head>
+<body ng-app="myModule">
+    <div ng-controller="myController">
+        Sort By :
+        <select ng-model="sortColumn">
+            <option value="name">Name ASC</option>
+            <option value="+dateOfBirth">Date of Birth ASC</option>
+            <option value="+gender">Gender ASC</option>
+            <option value="-salary">Salary DESC</option>
+        </select>
+        <br /><br />
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees | orderBy:sortColumn">
+                    <td>
+                        {{ employee.name }}
+                    </td>
+                    <td>
+                        {{ employee.dateOfBirth | date:"dd/MM/yyyy" }}
+                    </td>
+                    <td>
+                        {{ employee.gender }}
+                    </td>
+                    <td>
+                        {{ employee.salary  }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
 ```
 ```javascript
+var app = angular
+    .module("myModule", [])
+    .controller("myController", function ($scope) {
+        var employees = [
+            {
+                name: "Ben", dateOfBirth: new Date("November 23, 1980"),
+                gender: "Male", salary: 55000
+            },
+            {
+                name: "Sara", dateOfBirth: new Date("May 05, 1970"),
+                gender: "Female", salary: 68000
+            },
+            {
+                name: "Mark", dateOfBirth: new Date("August 15, 1974"),
+                gender: "Male", salary: 57000
+            },
+            {
+                name: "Pam", dateOfBirth: new Date("October 27, 1979"),
+                gender: "Female", salary: 53000
+            },
+            {
+                name: "Todd", dateOfBirth: new Date("December 30, 1983"),
+                gender: "Male", salary: 60000
+            }
+        ];
+        $scope.employees = employees;
+        $scope.sortColumn = "name";
+
+    });
 ```
 
 ### title
