@@ -207,10 +207,89 @@ var myApp = angular
     }); 
 ```
 
-### title
+### 06 ng-repeat, nesting ng-repeat
 ```html
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+</head>
+<body ng-app="myModule">
+    <div ng-controller="myController">
+        <table>
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Gender</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees">
+                    <td> {{ employee.firstName }} </td>
+                    <td> {{ employee.lastName }} </td>
+                    <td> {{ employee.gender }} </td>
+                    <td> {{ employee.salary }} </td>
+                </tr>
+            </tbody>
+        </table>
+        <ul>
+            <li ng-repeat="country in countries" ng-init="parentIndex=$index">
+                {{country.name}} Index={{$index}}
+                <ul>
+                    <li ng-repeat="city in country.cities">
+                        {{city.name}} Parent Index={{parentIndex}} Index={{$index}}
+                        <!-- {{city.name}} Parent Index={{$parent.$index}} Index={{$index}} -->
+                    </li>
+                </ul>            
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
 ```
 ```javascript
+var myApp = angular
+    .module("myModule", [])
+    .controller("myController", function ($scope) {
+        var employees = [
+            { firstName: "Ben", lastName: "Hastings", gender: "Male", salary: 55000 },
+            { firstName: "Sara", lastName: "Paul", gender: "Female", salary: 68000 },
+            { firstName: "Mark", lastName: "Holland", gender: "Male", salary: 57000 },
+            { firstName: "Pam", lastName: "Macintosh", gender: "Female", salary: 53000 },
+            { firstName: "Todd", lastName: "Barber", gender: "Male", salary: 60000 }
+        ];
+        var countries = [
+            {
+                name: "UK",
+                cities: [
+                    { name: "London" },
+                    { name: "Birmingham" },
+                    { name: "Manchester" }
+                ]
+            },
+            {
+                name: "USA",
+                cities: [
+                    { name: "Los Angeles" },
+                    { name: "Chicago" },
+                    { name: "Houston" }
+                ]
+            },
+            {
+                name: "India",
+                cities: [
+                    { name: "Hyderabad" },
+                    { name: "Chennai" },
+                    { name: "Mumbai" }
+                ]
+            }
+        ];
+        $scope.employees = employees;        
+        $scope.countries = countries;        
+    });    
 ```
 
 ### title
