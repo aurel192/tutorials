@@ -133,6 +133,7 @@ var myApp = angular
 ```
 
 ### 05 TwoWay Binding
+<img src="http://3.bp.blogspot.com/-O8t0qot_LTI/VjkfL3fJ_fI/AAAAAAAAf88/faf5rlKViaQ/s1600/Two%2Bway%2Bbinding%2Bexample%2Bwith%2Bcomplext%2Bobject.png" width="150">
 ```html
 <!DOCTYPE html>
 <html ng-app="myModule">
