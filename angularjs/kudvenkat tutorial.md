@@ -535,6 +535,7 @@ var app = angular
 ```
 
 ### 10 Sort rows by table header
+<img src="http://4.bp.blogspot.com/-imCvXZrkgD0/Vj-XxTZtWrI/AAAAAAAAgGA/nOD7P6IRchU/s1600/angularjs%2Bbidirectional%2Bsort%2Bdata%2Bby%2Btable%2Bheaders.png" width="150">
 ```html
 <!DOCTYPE html>
 <head>
