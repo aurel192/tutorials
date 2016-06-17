@@ -968,11 +968,68 @@ var app = angular
 ```
 
 
-### title
-<img src="" width="150">
+### 16 ng-include
 ```html
+<!DOCTYPE html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>  
+</head>
+<body ng-app="myModule">
+    <div ng-controller="myController">
+        Select View :
+        <select ng-model="employeeView">
+            <option value="EmployeeTable.html">Table</option>
+            <option value="EmployeeList.html">List</option>
+        </select>
+        <br /><br />
+        <div ng-include="employeeView">
+        </div> 
+    </div>
+</body>
+</html>
+```
+```html
+<ul ng-repeat="employee in employees">
+    <li>
+        {{employee.name}}
+        <ul>
+            <li>{{employee.gender}}</li>
+            <li>{{employee.salary}}</li>
+        </ul>
+    </li>
+</ul>
+```
+```html
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="employee in employees">
+            <td> {{ employee.name }} </td>
+            <td> {{ employee.gender}} </td>
+            <td> {{ employee.salary}} </td>
+        </tr>
+    </tbody>
+</table>
 ```
 ```javascript
+    .module("myModule", [])
+    .controller("myController", function ($scope) {
+        var employees = [
+            { name: "Ben", gender: "Male", salary: 55000 },
+            { name: "Sara", gender: "Female", salary: 68000 },
+            { name: "Mark", gender: "Male", salary: 57000 },
+            { name: "Pam", gender: "Female", salary: 53000 },
+            { name: "Todd", gender: "Male", salary: 60000 }
+        ];
+        $scope.employees = employees;
+        $scope.employeeView = "EmployeeTable.html";
+    });
 ```
 
 
