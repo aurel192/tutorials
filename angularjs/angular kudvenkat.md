@@ -897,6 +897,150 @@ var app = angular
 ```
 
 
+### 15 ng-init
+```html
+<!DOCTYPE html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>  
+</head>
+<body ng-app="myModule">
+    <div ng-init="employees = [
+                    { name: 'Ben', gender: 'Male', city: 'London' },
+                    { name: 'Sara', gender: 'Female', city: 'Chennai' },
+                    { name: 'Mark', gender: 'Male', city: 'Chicago' },
+                    { name: 'Pam', gender: 'Female', city: 'London' },
+                    { name: 'Todd', gender: 'Male', city: 'Chennai' }
+                ]">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees">
+                    <td> {{ employee.name }} </td>
+                    <td> {{ employee.gender}} </td>
+                    <td> {{ employee.city}} </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div ng-controller="myController">
+        <ul>
+            <li ng-repeat="country in countries" ng-init="parentIndex = $index">
+                {{country.name}}
+                <ul>
+                    <li ng-repeat="city in country.cities">
+                        {{city.name}} - Parent Index = {{ parentIndex }}, Index = {{ $index }}
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>   
+</body>
+</html>
+```
+```javascript
+var app = angular
+    .module("myModule", [])
+    .controller("myController", function ($scope) {
+        var countries = [
+            {
+                name: "India",
+                cities: [
+                    { name: "Hyderabad" },
+                    { name: "Chennai" }
+                ]
+            },
+            {
+                name: "USA",
+                cities: [
+                    { name: "Los Angeles" },
+                    { name: "Chicago" },
+                ]
+            }
+        ];
+        $scope.countries = countries;
+    });
+```
+
+
+### title
+<img src="" width="150">
+```html
+```
+```javascript
+```
+
+
+### title
+<img src="" width="150">
+```html
+```
+```javascript
+```
+
+
+### title
+<img src="" width="150">
+```html
+```
+```javascript
+```
+
+
+### title
+<img src="" width="150">
+```html
+```
+```javascript
+```
+
+
+### title
+<img src="" width="150">
+```html
+```
+```javascript
+```
+
+
+### title
+<img src="" width="150">
+```html
+```
+```javascript
+```
+
+
+### title
+<img src="" width="150">
+```html
+```
+```javascript
+```
+
+
+### title
+<img src="" width="150">
+```html
+```
+```javascript
+```
+
+
+
+### title
+<img src="" width="150">
+```html
+```
+```javascript
+```
+
+
 ### title
 <img src="" width="150">
 ```html
